@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div :class="['page', setPageTheme]">
     <navigation />
 
     <div class="padding">
@@ -15,10 +15,16 @@ export default {
   components: {
     Navigation,
   },
+
+  computed: {
+    setPageTheme() {
+      return this.$route.path === '/moduleD' ? 'page_white' : '';
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .padding {
   padding: 10px;
 }
@@ -30,5 +36,11 @@ export default {
   background-repeat: no-repeat;
   background-color: #100432;
   color: white;
+
+  &_white {
+    background-image: none;
+    background-color: #fff;
+    color: #000;
+  }
 }
 </style>

@@ -1,11 +1,22 @@
 <template>
   <div>
     <h1>Module C</h1>
+    <Card
+      :title="card.title"
+      :description="card.description"
+      :img="card.img"
+    />
   </div>
 </template>
 
 <script>
+import Card from '@/modules/moduleB/components/Card.vue';
+
 export default {
+  components: {
+    Card,
+  },
+
   data() {
     return {
       card: {

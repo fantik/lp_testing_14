@@ -4,16 +4,19 @@
       src="https://via.placeholder.com/70x40"
       alt=""
     >
-
-    <router-link
-      v-for="l in links"
-      :key="l.to"
-      class="link"
-      :to="l.to"
-      exact
+    <nav
+      class="nav-menu"
     >
-      {{ l.name }}
-    </router-link>
+      <router-link
+        v-for="l in links"
+        :key="l.to"
+        class="link"
+        :to="l.to"
+        exact
+      >
+        {{ l.name }}
+      </router-link>
+    </nav>
   </div>
 </template>
 
@@ -37,6 +40,10 @@ export default {
         {
           to: '/moduleC',
           name: 'moduleC',
+        },
+        {
+          to: '/moduleD',
+          name: 'moduleD',
         },
       ],
     };
@@ -66,8 +73,17 @@ img {
   transition: opacity .3s;
   margin: 0 10px;
 
+  @media screen and (max-width: 767px) {
+    margin-bottom: 5px;
+  }
+
   &:hover, &.router-link-active {
     opacity: 1;
   }
+}
+
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
